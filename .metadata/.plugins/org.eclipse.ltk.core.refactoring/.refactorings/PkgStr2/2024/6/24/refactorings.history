@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.tka.dao.CollegeDAO&apos; to &apos;EntertainmentAppDAO&apos;&#x0D;&#x0A;- Original project: &apos;PkgStr2&apos;&#x0D;&#x0A;- Original element: &apos;com.tka.dao.CollegeDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;com.tka.dao.EntertainmentAppDAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CollegeDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.tka.dao{CollegeDAO.java[CollegeDAO" matchStrategy="1" name="EntertainmentAppDAO" qualified="false" references="true" similarDeclarations="false" stamp="1718348201545" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,117 @@
+package com.tka.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tka.entity.Book;
+import com.tka.service.BookService;
+
+@RestController
+public class BookController {
+
+	@Autowired
+	BookService bService;
+
+	@Value("${c1.n}")
+	int a;
+	
+	@GetMapping("/getBooks")
+	public ArrayList<Book> getBooks(){
+
+		System.out.println(a);
+		return bService.getBooks();		
+	}
+
+	@GetMapping("/getTotalNoOfBooks")
+	public String getTotalNoOfBooks() {
+
+		return bService.getTotalNoOfBooks();		
+	}
+
+	@GetMapping("/getBooksWithPriceMoreThan2K")
+	public ArrayList<Book> getBooksWithPriceMoreThan2K(){
+
+		return bService.getBooksWithPriceMoreThan2K();		
+	}
+
+	@GetMapping("/insertBookData")
+	public String insertBookData() {
+
+		return bService.insertBookData();
+
+	}
+	
+	@GetMapping("/fetchSingleBook")
+	public Book fetchSingleBook() {
+
+		Book b=bService.fetchSingleBook();
+
+		return b;
+	}
+	
+	@PostMapping("/addSingleBook")
+	public void addSingleBook(@RequestBody Book b) {
+
+		bService.addSingleBook(b);		
+	}
+	
+	@PutMapping("/updateSingleBook")
+	public void updateSingleBook(@RequestBody Book b) {
+
+		bService.updateSingleBook(b);		
+	}
+	
+	
+	@DeleteMapping("/deleteSingleBook")
+	public void deleteSingleBook(@RequestParam int bId) {
+
+		bService.deleteSingleBook(bId);		
+	}
+	
+	@GetMapping("/getBookByGenre/{genre}")
+	public ArrayList<Book> getBookByGenre(@PathVariable String genre) {
+
+		return bService.getBookByGenre(genre);
+
+	}
+	
+	@GetMapping("/getBookCountByGenre/{genre}")
+	public String getBookCountByGenre(@PathVariable String genre) {
+
+		return bService.getBookCountByGenre(genre);
+
+	}
+	
+	@GetMapping("/getSpecificBookDetails/{bookName}")
+	public ArrayList<Book> getSpecificBookDetails(@PathVariable String bookName) {
+
+		return bService.getSpecificBookDetails(bookName);
+
+	}
+	
+	@GetMapping("/getBooksByAuthor/{author}")
+	public ArrayList<Book> getBooksByAuthor(@PathVariable String author) {
+
+		return bService.getBooksByAuthor(author);
+
+	}
+	
+	@GetMapping("/getBooksByPriceRange")
+	public ArrayList<Book> getBooksByPriceRange(@RequestParam double minCost,double maxCost) {
+
+		return bService.getBooksByPriceRange(minCost,maxCost);
+		 	
+	}
+	
+
+}

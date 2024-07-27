@@ -1,0 +1,8 @@
+<form  action="./ServeletAttribute">
+
+    <h1>Enter name</h1>
+    <input type="text" name="uname">
+       
+    <input type="submit">
+    
+</form>
